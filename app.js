@@ -17,7 +17,7 @@ app.set('views', path.join(__dirname, 'public', 'views'));
 
 
 // 메인페이지는 index.html
-app.get('/', (req, res) => {
+app.get('../', (req, res) => {
     res.sendFile('index.html')
 })
 
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 app.post('/dashboard',(req,res)=>{
     const {username, password} = req.body
 
-    if (username==='admin' && password==="1111"){
+    if (username==='kang' && password==="1111"){
         res.render('dashboard',{username})
     }
 
