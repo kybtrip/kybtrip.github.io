@@ -7,7 +7,7 @@ const port = 3000
 app.set('view engine', 'ejs');
 
 // root 폴더는 Proj1 으로 설정
-app.use(express.static('public'));
+app.use(express.static(__dirname));
 
 // req.body 해독을 위한 미들웨어 장착
 app.use(express.urlencoded({ extended: true }));
@@ -17,8 +17,8 @@ app.set('views', path.join(__dirname, 'public', 'views'));
 
 
 // 메인페이지는 index.html
-app.get('../', (req, res) => {
-    res.sendFile('index.html')
+app.get('/', (req, res) => {
+    res.sendFile(__dirname, 'index.html')
 })
 
 // 로그인 시도시 데시보드로 이동
